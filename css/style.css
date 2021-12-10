@@ -24,5 +24,19 @@ body {
 }
 
 #location {
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: large;
+}
+
+.details {
   display: none;
+  margin-top: 2em;
+}
+
+.forecast {
+  margin: auto;
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
 }
