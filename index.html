@@ -8,6 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/images/sunny.png" />
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
 
   <script src="http://code.jquery.com/jquery-1.12.4.min.js"
     integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
@@ -15,23 +20,34 @@
 
 <body>
   <div class="center">
-    <h1 class="text-center">How's the Weather?</h1>
-    <form id="search-weather">
-      <input type="text" id="search" />
-      <input type="submit" id="submit"></input>
-    </form>
+    <header>
+      <h1 class="text-center">How's the Weather?</h1>
+      <form id="search-weather">
+        <input type="text" id="search" />
+        <input type="submit" id="submit" />
+      </form>
+      <div id="button-container">
+        <input id="current-button" type="checkbox" class="toggle-buttons" value="current" checked />
+        <label for="current-button" class="toggle-label">Current Weather</label>
+        <input id="forecast-button" type="checkbox" class="toggle-buttons" value="forecast" />
+        <label for="forecast-button" class="toggle-label">3 Day Forecast</label>
+      </div>
+    </header>
 
-    <div class="result text-center">
-      <div id="location" class="details">Weather in <span id="city"></span>, <span id="state"></span>.</div>
-      <div class="current">
-        <h2 class="details">Current Weather</h2>
-        <img class="weather_icon" src="images/trans.png" />
-        <div class="description"></div>
-      </div>
-      <h2 class="details">3-Day Forecast</h2>
-      <div class="forecast">
-      </div>
-    </div>
+    <section class="result text-center">
+      <h2><span id="location"></span> <span id="city"></span>, <span id="state"></span></h2>
+
+      <article class="current">
+        <div class="weather-box">
+          <img class="weather_icon" src="images/trans.png" />
+          <div class="description"></div>
+        </div>
+      </article>
+
+      <article class="forecast">
+      </article>
+  </div>
+  </section>
   </div>
 
   <script src="js/weather.js"></script>
