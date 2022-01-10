@@ -1,30 +1,24 @@
 $(function () {
-  let selectedBox = 'current';
+  let selectedBox = $('input[name="weather-select"]:checked').val();
   let apiData = {};
 
-  $('.toggle-buttons').click(function (e) {
-    // prevent checked box to be unchecked on click
-    if (!$(this).is(':checked')) {
-      e.preventDefault;
-      return false;
+  $('#button-container').on('click', function (e) {
+    if (e.target.type === 'radio') {
+      selectedBox = e.target.value;
+      console.log(selectedBox);
     }
-    $(this).siblings().attr('checked', false); // uncheck checked siblings
-    selectedBox = $(this)[0].value;
-
-    if (Object.keys(apiData).length) {
-      displayResults();
-    }
+    // selectedBox = e.target
   });
 
   // React to hitting enter in the text box instead of clicking submit.
   $('#search-weather').submit(function (e) {
     e.preventDefault();
     clearResult('');
+    console.log(selectedBox);
 
     // Get the weather info for the selected search location.
-    $.get('/weather.php?query=' + $('#search').val(), function (data) {
+    $.get('weather.php?query=' + $('#search').val(), function (data) {
       apiData = data;
-      console.log(data);
       // Show weather results.
       if (data.temp_f) {
         prepResult(apiData);

@@ -4,9 +4,9 @@
 <head>
   <title>How's the Weather?</title>
   <meta name="description” content=" A demo PHP app that lets users check the weather. Uses the weather.com API,
-    wunderground.">
+    underground.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/images/sunny.png" />
+  <link rel="icon" type="image/png" href="./images/sunny.png" />
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,9 +27,9 @@
         <input type="submit" id="submit" />
       </form>
       <div id="button-container">
-        <input id="current-button" type="checkbox" class="toggle-buttons" value="current" checked />
+        <input id="current-button" type="radio" class="toggle-buttons" name="weather-select" value="current" checked />
         <label for="current-button" class="toggle-label">Current Weather</label>
-        <input id="forecast-button" type="checkbox" class="toggle-buttons" value="forecast" />
+        <input id="forecast-button" type="radio" class="toggle-buttons" name="weather-select" value="forecast" />
         <label for="forecast-button" class="toggle-label">3 Day Forecast</label>
       </div>
     </header>

@@ -2,7 +2,7 @@
 
 body {
   margin: 50px auto;
-  background-image: url('/images/weather.png');
+  background-image: url('../images/weather.png');
   background-size: cover;
   font-family: 'Noto Sans Display', sans-serif;
 }
