@@ -5,21 +5,19 @@ $(function () {
   $('#button-container').on('click', function (e) {
     if (e.target.type === 'radio') {
       selectedBox = e.target.value;
-      console.log(selectedBox);
     }
-    // selectedBox = e.target
   });
 
   // React to hitting enter in the text box instead of clicking submit.
   $('#search-weather').submit(function (e) {
     e.preventDefault();
     clearResult('');
-    console.log(selectedBox);
 
     // Get the weather info for the selected search location.
     $.get('weather.php?query=' + $('#search').val(), function (data) {
       apiData = data;
       // Show weather results.
+      console.log(data);
       if (data.temp_f) {
         prepResult(apiData);
       } else {

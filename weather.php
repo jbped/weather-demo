@@ -9,8 +9,10 @@
 $currentUrl = "http://api.weatherapi.com/v1/current.json?key=fb0b4c5c22d04c22be2202032210112&aqi=no&q=";
 $forecastUrl = "http://api.weatherapi.com/v1/forecast.json?key=fb0b4c5c22d04c22be2202032210112&aqi=no&days=3&q=";
 
-// Check and filter query parameters.
-$query = filter_input(INPUT_GET, 'query', FILTER_DEFAULT);
+// Parse query parameters.
+$input = filter_input(INPUT_GET, 'query');
+// Verify input is INT < 99999
+$query = filter_var($input, FILTER_VALIDATE_INT, ["options" => ["max_range" => 99999]]);
 
 if ($query) {
   $query = urlencode($query);
@@ -29,5 +31,10 @@ if ($query) {
   $result['state'] = $parsed->location->region;
   $result['forecast'] = $parsed->forecast->forecastday;
   header('Content-Type: application/json');
+  echo json_encode($result);
+} else {
+  $result['error'] = 'Invalid Input';
+  $result['input'] = $input;
+  http_response_code(400);
   echo json_encode($result);
 }
