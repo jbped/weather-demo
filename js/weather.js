@@ -5,6 +5,9 @@ $(function () {
   $('#button-container').on('click', function (e) {
     if (e.target.type === 'radio') {
       selectedBox = e.target.value;
+      if (Object.keys(apiData).length) {
+        displayResults();
+      }
     }
   });
 
@@ -15,24 +18,27 @@ $(function () {
 
     // Get the weather info for the selected search location.
     $.get('weather.php?query=' + $('#search').val(), function (data) {
-      apiData = data;
-      // Show weather results.
-      console.log(data);
-      if (data.temp_f) {
-        prepResult(apiData);
-      } else {
-        clearResult('No valid data for your location.');
-      }
+      prepResult(data);
+    }).fail(function (data) {
+      var err = JSON.parse(data.responseText);
+      displayErr(err.error);
     });
   });
 
-  function clearResult($msg = 'Sorry Charlie! Not a valid input.') {
+  function displayErr(msg) {
+    const errorDiv = $('<div></div>').addClass('error-div');
+    const errorTxt = $('<p></p>').text(msg).addClass('error-text');
+    errorDiv.append(errorTxt);
+    $('header').append(errorDiv);
+  }
+
+  function clearResult(msg) {
     $('.weather_icon').attr('src', 'images/trans.png');
     $('.result').hide();
     $('#city').text();
     $('#state').text();
     $('.forecast').html('');
-    $('.result .description').html($msg);
+    $('.error-div').html('');
     apiData = {};
   }
 
