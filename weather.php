@@ -13,7 +13,7 @@ $forecastUrl = "http://api.weatherapi.com/v1/forecast.json?key=fb0b4c5c22d04c22b
 // Parse query parameters.
 $input = filter_input(INPUT_GET, 'query');
 // Verify input is INT < 99999
-$query = filter_var($input, FILTER_VALIDATE_INT, ["options" => ["max_range" => 99999]]);
+$query = filter_var($input, FILTER_DEFAULT);
 
 if ($query) {
   $query = urlencode($query);
