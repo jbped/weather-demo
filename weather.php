@@ -7,7 +7,6 @@
 // API URL.
 // You can register for free to get your own api key (fb0... below). 
 // forecastUrl returns both current and forecast weather conditions
-// $currentUrl = "http://api.weatherapi.com/v1/current.json?key=fb0b4c5c22d04c22be2202032210112&aqi=no&q=";
 $forecastUrl = "http://api.weatherapi.com/v1/forecast.json?key=fb0b4c5c22d04c22be2202032210112&aqi=no&days=3&q=";
 
 // Regex that verifies the provided string is either 1. approved characters (a-z with approved symbols of ' or -) or 2. 5 ints, not both
