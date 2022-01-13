@@ -10,12 +10,17 @@
 // $currentUrl = "http://api.weatherapi.com/v1/current.json?key=fb0b4c5c22d04c22be2202032210112&aqi=no&q=";
 $forecastUrl = "http://api.weatherapi.com/v1/forecast.json?key=fb0b4c5c22d04c22be2202032210112&aqi=no&days=3&q=";
 
+// Regex that verifies the provided string is either 1. approved characters (a-z with approved symbols of ' or -) or 2. 5 ints, not both
+$stringCheck = "/(^[A-Za-z'\- ]+$|^[0-9]{5}$)/";
+
 // Parse query parameters.
 $input = filter_input(INPUT_GET, 'query');
-// Verify input is INT < 99999
 $query = filter_var($input, FILTER_DEFAULT);
 
-if ($query) {
+// Verify Query follows $stringCheck regex 
+$validatedQuery = preg_match($stringCheck, $query);
+
+if ($query && $validatedQuery) {
   $query = urlencode($query);
 
   // Call the api with the user input query (zip, city, etc.).
