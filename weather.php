@@ -10,7 +10,7 @@
 $forecastUrl = "http://api.weatherapi.com/v1/forecast.json?key=fb0b4c5c22d04c22be2202032210112&aqi=no&days=3&q=";
 
 // Regex that verifies the provided string is either 1. approved characters (a-z with approved symbols of ' or -) or 2. 5 ints, not both
-$stringCheck = "/(^[A-Za-z'\- ]+$|^[0-9]{5}$)/";
+$stringCheck = "/(^[A-Za-z'\-, ]+$|^[0-9]{5}$)/";
 
 // Parse query parameters.
 $input = filter_input(INPUT_GET, 'query');

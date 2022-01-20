@@ -18,8 +18,8 @@ $(function () {
 
     // Get the weather info for the selected search location.
     $.get('weather.php?query=' + $('#search').val(), function (data) {
-      console.log(data);
-      prepResult(data);
+      apiData = data;
+      prepResult(apiData);
     }).fail(function (data) {
       var err = JSON.parse(data.responseText);
       displayErr(err.error);
