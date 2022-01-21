@@ -1,33 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>How's the Weather?</title>
-    <meta name="description” content="A demo PHP app that lets users check the weather. Uses the weather.com API, wunderground.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/images/sunny.png" />
-    <link rel="stylesheet" href="css/style.css">
 
-    <script
-      src="http://code.jquery.com/jquery-1.12.4.min.js"
-      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-      crossorigin="anonymous"></script>
-  </head>
+<head>
+  <title>How's the Weather?</title>
+  <meta name="description” content=" A demo PHP app that lets users check the weather. Uses the weather.com API,
+    underground.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./images/sunny.png" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
 
-  <body>
-    <div class="center">
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="center">
+    <header>
       <h1 class="text-center">How's the Weather?</h1>
       <form id="search-weather">
-        <input type="text" id="search" />
-        <input type="submit" id="submit"></input>
+        <input type="text" id="search" placeholder="City, State or ZIP Code" />
+        <input type="submit" id="submit" />
       </form>
-
-      <div class="result row text-center">
-        <img class="weather_icon" src="images/trans.png" />
-        <div id="location">Current weather in <span id="city"></span>, <span id="state"></span>.</div>
-        <div class="description"></div>
+      <div id="button-container">
+        <input id="current-button" type="radio" class="toggle-buttons" name="weather-select" value="current" checked />
+        <label for="current-button" class="toggle-label">Current Weather</label>
+        <input id="forecast-button" type="radio" class="toggle-buttons" name="weather-select" value="forecast" />
+        <label for="forecast-button" class="toggle-label">3 Day Forecast</label>
       </div>
-    </div>
+    </header>
 
-    <script src="js/weather.js"></script>
-  </body>
+    <section class="result text-center">
+      <h2><span id="location"></span> <span id="city"></span>, <span id="state"></span></h2>
+
+      <article class="current">
+        <div class="weather-box">
+          <img class="weather_icon" src="images/trans.png" />
+          <div class="description"></div>
+        </div>
+      </article>
+
+      <article class="forecast">
+      </article>
+  </div>
+  </section>
+  </div>
+
+  <script src="js/weather.js"></script>
+</body>
+
 </html>

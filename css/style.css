@@ -2,8 +2,9 @@
 
 body {
   margin: 50px auto;
-  background-image: url('/images/weather.png');
+  background-image: url('../images/weather.png');
   background-size: cover;
+  font-family: 'Noto Sans Display', sans-serif;
 }
 
 .center {
@@ -18,11 +19,54 @@ body {
   border: none;
 }
 
+.result {
+  display: none;
+}
+
 .result .description {
   font-size: 22px;
   line-height: normal;
 }
 
+.flex-container {
+  display: flex;
+}
+
 #location {
+  margin-top: 1em;
+}
+
+.current,
+.forecast {
+  margin-top: 2em;
+  margin: auto;
   display: none;
+}
+
+.current {
+  width: 40%;
+}
+
+.forecast {
+  width: 80%;
+  justify-content: space-between;
+}
+
+#button-container {
+  margin-top: 1em;
+}
+
+.weather-box {
+  padding: 2em;
+  border: 1px solid #b6b6b6;
+  border-radius: 4px;
+  background-color: rgba(236, 234, 234, 0.349);
+  box-shadow: 4px 4px 2px 1px rgba(75, 75, 75, 0.2);
+}
+
+.forecast-day-box {
+  width: 25%;
+}
+.forecast-day-box p {
+  margin: 0;
 }
